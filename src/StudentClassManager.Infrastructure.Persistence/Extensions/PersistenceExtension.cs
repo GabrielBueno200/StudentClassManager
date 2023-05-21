@@ -22,6 +22,7 @@ public static class PersistenceExtension
 
         // Repositories
         services.AddScoped<IStudentRepository, StudentRepository>();
+        services.AddScoped<IClassRepository, ClassRepository>();
 
         return services;
     }

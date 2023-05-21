@@ -17,6 +17,11 @@ public class UpdateStudentCommandHandler : IRequestHandler<UpdateStudentCommand,
 
     public async Task<Unit> Handle(UpdateStudentCommand request, CancellationToken cancellationToken)
     {
+        var validation = await new UpdateStudentCommandValidator()
+                .ValidateAsync(request);
+
+        if (!validation.IsValid) throw new Exception("invalid");
+
         var studentToUpdate = _mapper.Map<Domain.Models.Student>(request);
 
         await _repository.UpdateStudentAsync(studentToUpdate);

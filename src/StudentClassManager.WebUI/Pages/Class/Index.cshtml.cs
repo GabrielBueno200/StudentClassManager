@@ -3,29 +3,29 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using StudentClassManager.WebUI.Services.Interfaces;
 using StudentClassManager.WebUI.ViewModels;
 
-namespace StudentClassManager.WebUI.Pages.Student
+namespace StudentClassManager.WebUI.Pages.Class
 {
     public class GetModel : PageModel
     {
-        private readonly IStudentService _service;
-        public GetModel(IStudentService service)
+        private readonly IClassService _service;
+        public GetModel(IClassService service)
         {
             _service = service;
         }
 
         [BindProperty]
-        public IEnumerable<StudentViewModel> Students { get; set; }
+        public IEnumerable<ClassViewModel> Classes { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
-            Students = await _service.FindAllStudentsAsync();
+            Classes = await _service.FindAllClassesAsync();
             return Page();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            await _service.DeleteStudentAsync(id);
-            return RedirectToPage("/Student/Index");
+            await _service.DeleteClassAsync(id);
+            return RedirectToPage("/Class/Index");
         }
     }
 }

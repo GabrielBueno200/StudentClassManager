@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace StudentClassManager.WebUI.Validators;
+namespace StudentClassManager.WebUI.Attributes;
 public class PasswordValidationAttribute : ValidationAttribute
 {
     public override bool IsValid(object value)

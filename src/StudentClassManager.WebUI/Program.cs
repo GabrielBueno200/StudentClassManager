@@ -3,8 +3,8 @@ using StudentClassManager.WebUI.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddSessionStateTempDataProvider();
+builder.Services.AddSession();
 
 builder.Services.AddSingleton<HttpClient>(provider =>
 {
@@ -14,6 +14,7 @@ builder.Services.AddSingleton<HttpClient>(provider =>
 });
 
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IClassService, ClassService>();
 
 var app = builder.Build();
 
@@ -30,6 +31,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthentication();
+
+app.UseSession();
 
 app.UseAuthorization();
 

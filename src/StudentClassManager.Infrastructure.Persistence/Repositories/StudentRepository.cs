@@ -16,13 +16,10 @@ public class StudentRepository : IStudentRepository
 
     public async Task InactivateStudentAsync(int studentId)
     {
-        var parameters = new
-        {
-            Id = studentId
-        };
+        var parameters = new { studentId };
 
-        var result = await _uow.GetConnection().QueryFirstOrDefaultAsync<Student>(@"
-            DELETE FROM aluno WHERE id = @Id
+        var result = await _uow.GetConnection().ExecuteAsync(@"
+            DELETE FROM aluno WHERE id = @studentId
         ", parameters);
     }
 
@@ -56,13 +53,10 @@ public class StudentRepository : IStudentRepository
 
     public async Task<Student> GetStudentByIdAsync(int studentId)
     {
-        var parameters = new
-        {
-            Id = studentId
-        };
+        var parameters = new { studentId };
 
         var result = await _uow.GetConnection().QueryFirstOrDefaultAsync<Student>(
-            "SELECT * FROM aluno WHERE id = @Id;",
+            "SELECT * FROM aluno WHERE id = @studentId;",
             parameters
         );
 

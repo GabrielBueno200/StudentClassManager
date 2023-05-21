@@ -3,18 +3,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using StudentClassManager.WebUI.Services.Interfaces;
 using StudentClassManager.WebUI.ViewModels;
 
-namespace StudentClassManager.WebUI.Pages.Student
+namespace StudentClassManager.WebUI.Pages.Class
 {
     public class CreateModel : PageModel
     {
-        private readonly IStudentService _service;
-        public CreateModel(IStudentService service)
+        private readonly IClassService _service;
+        public CreateModel(IClassService service)
         {
             _service = service;
         }
 
         [BindProperty]
-        public StudentViewModel Student { get; set; }
+        public ClassViewModel Class { get; set; }
+        
 
         public async Task<IActionResult> OnPost()
         {
@@ -23,9 +24,9 @@ namespace StudentClassManager.WebUI.Pages.Student
                 return Page();
             }
 
-            await _service.CreateStudentAsync(Student);
+            await _service.CreateClassAsync(Class);
 
-            TempData["SuccessMessage"] = "Estudante cadastrado com sucesso";
+            TempData["SuccessMessage"] = "Turma atualizada com sucesso";
 
             return RedirectToPage("Index");
         }

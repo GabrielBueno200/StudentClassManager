@@ -6,8 +6,18 @@ public class UpdateStudentCommandValidator : AbstractValidator<UpdateStudentComm
 {
     public UpdateStudentCommandValidator()
     {
-        RuleFor(p => p.Name).NotNull().NotEmpty().MaximumLength(255);
-        RuleFor(p => p.UserName).NotNull().NotEmpty().MaximumLength(45);
+        RuleFor(p => p.Id).NotNull().NotEmpty();
+
+        RuleFor(p => p.Name)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(255);
+
+        RuleFor(p => p.UserName)
+            .NotNull()
+            .NotEmpty()
+            .MaximumLength(45);
+
         RuleFor(p => p.Password)
             .MinimumLength(8)
             .Matches(@"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$")

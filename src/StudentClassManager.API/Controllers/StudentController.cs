@@ -48,8 +48,8 @@ public class StudentController : ControllerBase
         return Ok(students);
     }
 
-    [HttpDelete("activate/{id}")]
-    public async Task<IActionResult> ActivateAsync([FromRoute] int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> InactivateAsync([FromRoute] int id)
     {
         await _mediator.Send(new InactivateStudentCommand(id));
         return Ok();
