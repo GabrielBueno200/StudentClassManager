@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using UoW = StudentClassManager.Infrastructure.Persistence.UnitOfWork;
 using StudentClassManager.Infrastructure.Persistence.DapperConfigurations.TypeMappers;
 using StudentClassManager.Infrastructure.Persistence.Repositories;
 using StudentClassManager.Domain.Interfaces.Repositories;
+using UoW = StudentClassManager.Infrastructure.Persistence.UnitOfWork;
 
 namespace StudentClassManager.Infrastructure.Persistence.Extensions;
 
@@ -23,6 +23,7 @@ public static class PersistenceExtension
         // Repositories
         services.AddScoped<IStudentRepository, StudentRepository>();
         services.AddScoped<IClassRepository, ClassRepository>();
+        services.AddScoped<IStudentClassRepository, StudentClassRepository>();
 
         return services;
     }
