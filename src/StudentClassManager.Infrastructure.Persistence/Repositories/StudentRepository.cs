@@ -14,9 +14,16 @@ public class StudentRepository : IStudentRepository
         _uow = uow;
     }
 
-    public Task ActivateStudentAsync(int studentId, bool isActive)
+    public async Task InactivateStudentAsync(int studentId)
     {
-        throw new NotImplementedException();
+        var parameters = new
+        {
+            Id = studentId
+        };
+
+        var result = await _uow.GetConnection().QueryFirstOrDefaultAsync<Student>(@"
+            DELETE FROM aluno WHERE id = @Id
+        ", parameters);
     }
 
     public async Task<Student> CreateAsync(Student studentToCreate)

@@ -4,7 +4,7 @@ using StudentClassManager.Application.ViewModels;
 using StudentClassManager.Application.Features.Student.Commands.CreateStudent;
 using StudentClassManager.Application.Features.Student.Queries.GetStudentDetails;
 using StudentClassManager.Application.Features.Student.Queries.GetAllStudents;
-using StudentClassManager.Application.Features.Student.Commands.ActivateStudent;
+using StudentClassManager.Application.Features.Student.Commands.InactivateStudent;
 using StudentClassManager.Application.Features.Student.Commands.UpdateStudent;
 
 namespace StudentClassManager.API.Controllers;
@@ -48,10 +48,10 @@ public class StudentController : ControllerBase
         return Ok(students);
     }
 
-    [HttpPost("activate")]
-    public async Task<IActionResult> ActivateAsync([FromBody] ActivateStudentCommand activate)
+    [HttpDelete("activate/{id}")]
+    public async Task<IActionResult> ActivateAsync([FromRoute] int id)
     {
-        await _mediator.Send(activate);
+        await _mediator.Send(new InactivateStudentCommand(id));
         return Ok();
     }
 }

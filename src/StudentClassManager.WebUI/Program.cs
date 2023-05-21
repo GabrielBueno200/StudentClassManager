@@ -1,7 +1,19 @@
+using StudentClassManager.WebUI.Services;
+using StudentClassManager.WebUI.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<HttpClient>(provider =>
+{
+    var httpClient = new HttpClient();
+    httpClient.BaseAddress = new("http://localhost:5220/");
+    return httpClient;
+});
+
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
@@ -17,6 +29,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

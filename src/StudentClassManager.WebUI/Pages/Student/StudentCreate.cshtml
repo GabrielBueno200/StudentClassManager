@@ -1,0 +1,23 @@
+@page
+@model StudentClassManager.WebUI.Pages.Student.CreateModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Student.Name">Nome:</label>
+        <input asp-for="Student.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Student.UserName">Usuário:</label>
+        <input asp-for="Student.UserName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Student.Password">Senha:</label>
+        <input asp-for="Student.Password" type="password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
