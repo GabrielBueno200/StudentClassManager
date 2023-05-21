@@ -14,7 +14,7 @@ namespace StudentClassManager.WebUI.Pages.Class
         }
 
         [BindProperty]
-        public IEnumerable<ClassViewModel> Classes { get; set; }
+        public IList<ClassViewModel> Classes { get; set; }
 
         public async Task<IActionResult> OnGet()
         {

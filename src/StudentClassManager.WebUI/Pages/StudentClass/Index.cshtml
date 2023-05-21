@@ -1,0 +1,63 @@
+@page
+@model StudentClassManager.WebUI.Pages.StudentClass.GetModel
+
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success mb-2">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post" class="mb-2 col-md-3">
+    <select asp-for="SelectedClassId" id="classId" name="selectedClassId" class="form-control" onchange="this.form.submit()">
+        <option value="">Selecione uma turma</option>
+        @foreach (var retrievedClass in Model?.Classes)
+        {
+            <option value="@retrievedClass.Id">@retrievedClass.ClassName</option>
+        }
+    </select>
+</form>
+
+@if (Model?.Students != null)
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Usuário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td>@student.Id</td>
+                        <td>@student.Name</td>
+                        <td>@student.UserName</td>
+                        <td class="d-flex gap-1">
+                            <form method="post" asp-page-handler="Delete" asp-route-studentId="@student.Id", asp-route-classId="@Model.SelectedClassId">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja inativar esse aluno?')">Inativar Relação</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<h3 class="mt-5">Associar novos alunos:</h3>
+<form method="post" asp-page-handler="Associate">
+    <select id="studentId" name="studentId" class="form-control" onchange="this.form.selectedStudentId.value = this.value">
+        <option value="">Selecione um aluno para associação</option>
+        @foreach (var student in Model?.StudentsToAssociate)
+        {
+            <option value="@student.Id">@student.Name</option>
+        }
+    </select>
+    <input type="hidden" name="classId" value="@Model.SelectedClassId" />
+    <button type="submit" class="btn btn-primary mt-2">Associar</button>
+</form>

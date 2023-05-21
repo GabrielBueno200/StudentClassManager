@@ -14,11 +14,11 @@ public class StudentService : IStudentService
         _client = client;
     }
 
-    public async Task<IEnumerable<StudentViewModel>> FindAllStudentsAsync()
+    public async Task<IList<StudentViewModel>> FindAllStudentsAsync()
     {
         var response = await _client.GetAsync(BaseUrl);
 
-        var students = await response.Content.ReadFromJsonAsync<IEnumerable<StudentViewModel>>();
+        var students = await response.Content.ReadFromJsonAsync<IList<StudentViewModel>>();
 
         return students!;
     }

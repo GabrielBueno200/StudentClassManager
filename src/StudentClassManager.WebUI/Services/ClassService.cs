@@ -15,11 +15,11 @@ public class ClassService : IClassService
         _client = client;
     }
 
-    public async Task<IEnumerable<ClassViewModel>> FindAllClassesAsync()
+    public async Task<IList<ClassViewModel>> FindAllClassesAsync()
     {
         var response = await _client.GetAsync(BaseUrl);
 
-        var existingClasses = await response.Content.ReadFromJsonAsync<IEnumerable<ClassViewModel>>();
+        var existingClasses = await response.Content.ReadFromJsonAsync<IList<ClassViewModel>>();
 
         return existingClasses!;
     }

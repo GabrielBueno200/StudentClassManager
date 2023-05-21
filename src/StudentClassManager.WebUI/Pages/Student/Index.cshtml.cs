@@ -14,7 +14,7 @@ namespace StudentClassManager.WebUI.Pages.Student
         }
 
         [BindProperty]
-        public IEnumerable<StudentViewModel> Students { get; set; }
+        public IList<StudentViewModel> Students { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
@@ -25,6 +25,9 @@ namespace StudentClassManager.WebUI.Pages.Student
         public async Task<IActionResult> OnPostDelete(int id)
         {
             await _service.DeleteStudentAsync(id);
+
+            TempData["SuccessMessage"] = "Relação Inativada com sucesso!";
+
             return RedirectToPage("/Student/Index");
         }
     }
