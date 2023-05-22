@@ -68,8 +68,8 @@ CREATE TABLE turma (
 );
 
 CREATE TABLE aluno_turma (
-	aluno_id INT,
-	turma_id INT,
+    aluno_id INT,
+    turma_id INT,
     CONSTRAINT aluno_id FOREIGN KEY (aluno_id) REFERENCES aluno(id) ON DELETE CASCADE,
     CONSTRAINT turma_id FOREIGN KEY (turma_id) REFERENCES turma(id) ON DELETE CASCADE
 );
