@@ -1,5 +1,7 @@
 using AutoMapper;
 using MediatR;
+using StudentClassManager.Application.Exceptions;
+using StudentClassManager.Application.Extensions;
 using StudentClassManager.Application.ViewModels;
 using StudentClassManager.Domain.Interfaces.Repositories;
 
@@ -21,10 +23,11 @@ public class CreateClassCommandHandler : IRequestHandler<CreateClassCommand,
     public async Task<ClassViewModel> Handle(CreateClassCommand request, CancellationToken cancellationToken)
     {
         var validation = await new CreateClassCommandValidator().ValidateAsync(request);
-        if (!validation.IsValid) throw new Exception("invalid");
+        validation.VerifyErrorsAndThrow();
 
         var classAlreadyExists = (await _repository.GetClassByNameAsync(request.ClassName!)) != null;
-        if (classAlreadyExists) throw new Exception("invalid");
+        if (classAlreadyExists) 
+            throw new BadRequestException("Já existe uma turma cadastrada com o nome informado");
 
         var classToCreate = _mapper.Map<Domain.Models.Class>(request);
 

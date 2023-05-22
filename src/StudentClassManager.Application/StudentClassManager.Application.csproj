@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudentClassManager.Domain\StudentClassManager.Domain.csproj" />
+    <ProjectReference Include="..\StudentClassManager.Infrastructure.Security\StudentClassManager.Infrastructure.Security.csproj" />
   </ItemGroup>
 </Project>

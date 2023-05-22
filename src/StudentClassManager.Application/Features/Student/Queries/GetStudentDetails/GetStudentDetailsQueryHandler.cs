@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using StudentClassManager.Application.Exceptions;
 using StudentClassManager.Application.ViewModels;
 using StudentClassManager.Domain.Interfaces.Repositories;
 
@@ -21,6 +22,11 @@ public class GetStudentDetailsQueryHandler : IRequestHandler<GetStudentDetailsQu
     {
         var student = await _repository.GetStudentByIdAsync(request.Id);
 
+        // Validation
+        if (student == null)
+            throw new NotFoundException($"Não foi encontrada um aluno com o id {request.Id}");
+
+        // Result
         var mappedStudent = _mapper.Map<StudentViewModel>(student);
 
         return mappedStudent;

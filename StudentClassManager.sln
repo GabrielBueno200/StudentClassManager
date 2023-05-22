@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCuttin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentClassManager.CrossCutting.IoC", "src\StudentClassManager.CrossCutting.IoC\StudentClassManager.CrossCutting.IoC.csproj", "{BE44F482-C295-46AB-8B51-C8330ECA9920}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentClassManager.Infrastructure.Security", "src\StudentClassManager.Infrastructure.Security\StudentClassManager.Infrastructure.Security.csproj", "{6F99BF05-C8E1-47D2-9117-A342041FB0E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{BE44F482-C295-46AB-8B51-C8330ECA9920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE44F482-C295-46AB-8B51-C8330ECA9920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE44F482-C295-46AB-8B51-C8330ECA9920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F99BF05-C8E1-47D2-9117-A342041FB0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F99BF05-C8E1-47D2-9117-A342041FB0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F99BF05-C8E1-47D2-9117-A342041FB0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F99BF05-C8E1-47D2-9117-A342041FB0E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{73CAF167-C685-4777-916A-80E9509F8668} = {32C9C0A3-615B-4E6C-8F06-629834FF4327}
@@ -79,5 +85,6 @@ Global
 		{77996637-5150-413C-ACD7-9428EE6E2904} = {2180FC22-E0BC-42E5-9D79-0DB6C228B69F}
 		{2BA6A203-2F48-48C9-9B21-9A04E7402472} = {C913C88F-3EA1-4ECE-B0BA-ADE1482EDC96}
 		{BE44F482-C295-46AB-8B51-C8330ECA9920} = {73CAF167-C685-4777-916A-80E9509F8668}
+		{6F99BF05-C8E1-47D2-9117-A342041FB0E4} = {C913C88F-3EA1-4ECE-B0BA-ADE1482EDC96}
 	EndGlobalSection
 EndGlobal

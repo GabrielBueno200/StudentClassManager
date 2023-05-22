@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using StudentClassManager.Application.Exceptions;
 using StudentClassManager.Application.ViewModels;
 using StudentClassManager.Domain.Interfaces.Repositories;
 
@@ -19,9 +20,12 @@ public class GetClassDetailsQueryHandler : IRequestHandler<GetClassDetailsQuery,
 
     public async Task<ClassViewModel> Handle(GetClassDetailsQuery request, CancellationToken cancellationToken)
     {
-        var student = await _repository.GetClassByIdAsync(request.Id);
+        var existingClass = await _repository.GetClassByIdAsync(request.Id);
 
-        var mappedClass = _mapper.Map<ClassViewModel>(student);
+        if (existingClass == null)
+            throw new NotFoundException($"Não foi encontrada uma turma com o id {request.Id}");
+
+        var mappedClass = _mapper.Map<ClassViewModel>(existingClass);
 
         return mappedClass;
     }

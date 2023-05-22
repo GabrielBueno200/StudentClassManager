@@ -11,12 +11,12 @@ public class UpdateClassCommandValidator : AbstractValidator<UpdateClassCommand>
 
         RuleFor(p => p.ClassName)
             .NotNull()
-            .NotEmpty()
-            .MaximumLength(45);
+            .NotEmpty().WithMessage("Nome é obrigatório")
+            .MaximumLength(45).WithMessage("Nome pode conter no máximo 45 caracteres");
 
         RuleFor(p => p.Year)
             .NotNull()
-            .NotEmpty()
-            .GreaterThanOrEqualTo(DateTime.Now.Year);
+            .NotEmpty().WithMessage("Ano é obrigatório")
+            .GreaterThanOrEqualTo(DateTime.Now.Year).WithMessage("Ano deve ser maior ou igual ao atual");;
     }
 }

@@ -32,7 +32,24 @@ public class StudentClassRepository : IStudentClassRepository
             SELECT a.* FROM aluno a 
                 JOIN aluno_turma t 
                 ON a.id = t.aluno_id 
-                WHERE t.turma_id = 4
+                WHERE t.turma_id = @classId
+        ", parameters);
+
+        return result.ToList();
+    }
+
+    public async Task<IList<Student>> GetStudentsToAssociate(int classId)
+    {
+        var parameters = new { classId };
+
+        var result = await _uow.GetConnection().QueryAsync<Student>(@"
+            SELECT *
+                FROM aluno
+                WHERE id NOT IN (
+                    SELECT aluno_id
+                    FROM aluno_turma
+                    WHERE turma_id = @classId
+                );
         ", parameters);
 
         return result.ToList();
@@ -43,8 +60,20 @@ public class StudentClassRepository : IStudentClassRepository
         var parameters = new { classId, studentId };
 
         var result = await _uow.GetConnection().ExecuteAsync(
-            "DELETE FROM aluno_turma WHERE turma_id = @classId AND aluno_id = studentId", 
+            "DELETE FROM aluno_turma WHERE turma_id = @classId AND aluno_id = @studentId", 
             parameters
         );
+    }
+
+    public async Task<bool> VerifyIfStudentIsInClass(int classId, int studentId)
+    {
+        var parameters = new { classId, studentId };
+
+        var result = await _uow.GetConnection().QueryFirstOrDefaultAsync(
+            "SELECT * FROM aluno_turma WHERE turma_id = @classId AND aluno_id = @studentId", 
+            parameters
+        );
+
+        return result != null;
     }
 }

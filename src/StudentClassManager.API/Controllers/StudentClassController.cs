@@ -4,6 +4,7 @@ using StudentClassManager.Application.ViewModels;
 using StudentClassManager.Application.Features.StudentClass.Queries.GetClassStudents;
 using StudentClassManager.Application.Features.StudentClass.Commands.RemoveStudentFromClass;
 using StudentClassManager.Application.Features.StudentClass.Commands.AssociateStudentWithClass;
+using StudentClassManager.Application.Features.StudentClass.Queries.GetStudentsToAssociate;
 
 namespace StudentClassManager.API.Controllers;
 
@@ -25,10 +26,10 @@ public class StudentClassController : ControllerBase
         return Ok(classStudents);
     }
 
-    [HttpDelete]
-    public async Task<IActionResult> RemoveStudentFromClassAsync([FromBody] RemoveStudentFromClassCommand studentClass)
+    [HttpDelete("{classId}/{studentId}")]
+    public async Task<IActionResult> RemoveStudentFromClassAsync([FromRoute] int classId, [FromRoute] int studentId)
     {
-        await _mediator.Send(studentClass);
+        await _mediator.Send(new RemoveStudentFromClassCommand(classId, studentId));
         return Ok();
     }
 
@@ -37,5 +38,12 @@ public class StudentClassController : ControllerBase
     {
         await _mediator.Send(studentClass);
         return Ok();
+    }
+
+    [HttpGet("studentsToAssociate/{classId}")]
+    public async Task<IActionResult> GetStudentsToAssociateAsync([FromRoute] int classId)
+    {
+        var studentsToAssociate = await _mediator.Send(new GetStudentsToAssociateQuery(classId));
+        return Ok(studentsToAssociate);
     }
 }

@@ -58,7 +58,7 @@ public class ClassRepository : IClassRepository
         var parameters = new { className };
 
         var result = await _uow.GetConnection().QueryFirstOrDefaultAsync<Class>(
-            "SELECT * FROM turma WHERE turma = '@className';",
+            "SELECT * FROM turma WHERE turma = @className;",
             parameters
         );
 
