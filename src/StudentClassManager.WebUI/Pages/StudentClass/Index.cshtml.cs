@@ -59,7 +59,7 @@ namespace StudentClassManager.WebUI.Pages.StudentClass
         {
             await _studentClassService.AssociateStudentWithClassAsync(studentClass.StudentId, studentClass.ClassId);
             
-            TempData["SuccessMessage"] = "Aluno associado com sucesso";
+            TempData["SuccessMessage"] = "Estudante associado com sucesso";
 
             return RedirectToPage();
         }

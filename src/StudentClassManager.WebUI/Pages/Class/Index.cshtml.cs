@@ -25,6 +25,9 @@ namespace StudentClassManager.WebUI.Pages.Class
         public async Task<IActionResult> OnPostDelete(int id)
         {
             await _service.DeleteClassAsync(id);
+            
+            TempData["SuccessMessage"] = "Turma inativada com sucesso!";
+
             return RedirectToPage("/Class/Index");
         }
     }

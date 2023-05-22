@@ -26,7 +26,7 @@ namespace StudentClassManager.WebUI.Pages.Student
         {
             await _service.DeleteStudentAsync(id);
 
-            TempData["SuccessMessage"] = "Relação Inativada com sucesso!";
+            TempData["SuccessMessage"] = "Estudante inativado com sucesso!";
 
             return RedirectToPage("/Student/Index");
         }
