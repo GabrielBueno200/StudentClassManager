@@ -43,6 +43,10 @@ O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar t
 ## 🚀 Como rodar
  
 ### 1 - Criar base de dados 
+<p align="center">
+	<img src="https://github.com/GabrielBueno200/StudentClassManager/assets/56837996/07cd269d-df79-4868-b58a-76e03660d1cf" height="200" width="550"/>
+</p>
+
 O script utilizado para a criação da base de dados SQL Server foi baseado no diagrama proposto acima. Para executar o sistema, primeiro será necessário criá-la.
 Para isso, foram utilizados os comandos abaixo:
 
