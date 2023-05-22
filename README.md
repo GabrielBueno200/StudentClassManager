@@ -84,11 +84,12 @@ CREATE TABLE aluno_turma (
 
 - 2.2. Linha de comando
   - Da mesma forma, será necessário executar ambos os projetos. Ao final, assim como dito antes, basta abrir o frontend no navegador. 
+   ```bash
+  cd src/StudentClassManager.API
+  dotnet run build
+  ```
   ```bash
   cd src/StudentClassManager.WebUI
   dotnet run build
   ```
-  ```bash
-  cd src/StudentClassManager.API
-  dotnet run build
-  ```
+
