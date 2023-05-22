@@ -44,7 +44,7 @@ O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar t
  
 ### 1 - Criar base de dados 
 <p align="center">
-	<img src="https://github.com/GabrielBueno200/StudentClassManager/assets/56837996/07cd269d-df79-4868-b58a-76e03660d1cf" height="200" width="550"/>
+	<img src="https://github.com/GabrielBueno200/StudentClassManager/assets/56837996/f0a5601f-5c18-440e-904e-4a52cdf1c7f3" height="200" width="550"/>
 </p>
 
 O script utilizado para a criação da base de dados SQL Server foi baseado no diagrama proposto acima. Para executar o sistema, primeiro será necessário criá-la.
