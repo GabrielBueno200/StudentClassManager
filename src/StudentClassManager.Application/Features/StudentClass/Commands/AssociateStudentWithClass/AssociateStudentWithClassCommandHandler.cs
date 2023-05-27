@@ -28,7 +28,7 @@ public class AssociateStudentWithClassCommandHandler : IRequestHandler<Associate
         var studentAlreadyInClass = await _repository.VerifyIfStudentIsInClass(request.ClassId, request.StudentId);
 
         if (!studentExists)
-            throw new NotFoundException($"Não foi encontrada aluno turma com o id {request.StudentId}");
+            throw new NotFoundException($"Não foi encontrado um aluno turma com o id {request.StudentId}");
 
         if (!classExists)
             throw new NotFoundException($"Não foi encontrada uma turma com o id {request.ClassId}");

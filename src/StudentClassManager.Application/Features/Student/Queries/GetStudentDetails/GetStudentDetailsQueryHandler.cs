@@ -24,7 +24,7 @@ public class GetStudentDetailsQueryHandler : IRequestHandler<GetStudentDetailsQu
 
         // Validation
         if (student == null)
-            throw new NotFoundException($"Não foi encontrada um aluno com o id {request.Id}");
+            throw new NotFoundException($"Não foi encontrado um aluno com o id {request.Id}");
 
         // Result
         var mappedStudent = _mapper.Map<StudentViewModel>(student);

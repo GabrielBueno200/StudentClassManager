@@ -28,7 +28,7 @@ public class RemoveStudentFromClassCommandHandler : IRequestHandler<RemoveStuden
         var classExists = (await _classRepository.GetClassByIdAsync(request.ClassId)) != null;
 
         if (!studentExists)
-            throw new NotFoundException($"Não foi encontrada um aluno com o id {request.StudentId}");
+            throw new NotFoundException($"Não foi encontrado um aluno com o id {request.StudentId}");
 
         if (!classExists)
             throw new NotFoundException($"Não foi encontrada uma turma com o id {request.StudentId}");

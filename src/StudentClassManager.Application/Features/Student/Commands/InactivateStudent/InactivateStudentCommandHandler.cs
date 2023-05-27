@@ -22,7 +22,7 @@ public class InactivateStudentCommandHandler : IRequestHandler<InactivateStudent
         var studentExists = (await _repository.GetStudentByIdAsync(request.Id)) != null;
 
         if (!studentExists)
-            throw new NotFoundException($"Não foi encontrada aluno com o id {request.Id}");
+            throw new NotFoundException($"Não foi encontrado um aluno com o id {request.Id}");
 
         // Result
         await _repository.InactivateStudentAsync(request.Id);
