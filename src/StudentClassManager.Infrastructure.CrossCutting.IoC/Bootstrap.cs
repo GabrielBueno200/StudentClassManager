@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StudentClassManager.Application.Extensions;
 using StudentClassManager.Infrastructure.Persistence.Extensions;
 
-namespace StudentClassManager.CrossCutting.IoC;
+namespace StudentClassManager.Infrastructure.CrossCutting.IoC;
 
 public static class Bootstrap
 {

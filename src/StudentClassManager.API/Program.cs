@@ -1,4 +1,4 @@
-using StudentClassManager.CrossCutting.IoC;
+using StudentClassManager.Infrastructure.CrossCutting.IoC;
 using StudentClassManager.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);

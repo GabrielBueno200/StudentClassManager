@@ -11,7 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudentClassManager.CrossCutting.IoC\StudentClassManager.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\StudentClassManager.Infrastructure.CrossCutting.IoC\StudentClassManager.Infrastructure.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\StudentClassManager.Application\StudentClassManager.Application.csproj" />
   </ItemGroup>
 </Project>
