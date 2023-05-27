@@ -37,7 +37,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## 💻 Sobre o projeto
-O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar tarefas de CRUD de ambos, assim como relacioná-los entre si. Este projeto faz parte do desafio técnico proposto pela FIAP para .NET Developer, descrito na <a href="https://github.com/GabrielBueno200/StudentClassManager/wiki">Wiki</a> deste repositório
+O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar tarefas de CRUD de ambos, assim como relacioná-los entre si. Este projeto faz parte do desafio técnico proposto pela FIAP para .NET Developer, descrito na <a href="https://github.com/GabrielBueno200/StudentClassManager/wiki">Wiki</a> deste repositório.
 
 <!-- HOW TO RUN -->
 ## 🚀 Como rodar
