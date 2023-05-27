@@ -23,7 +23,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Table of Contents</summary>
+  <summary>Tabela de conteúdos</summary>
   <ol>
     <li>
       <a href="#-about-the-project">Sobre o projeto</a>
@@ -37,14 +37,14 @@
 
 <!-- ABOUT THE PROJECT -->
 ## 💻 Sobre o projeto
-O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar tarefas de CRUD de ambos, assim como relacioná-los entre si.
+O projeto se propõe a ser um gerenciador de turmas e alunos, podendo realizar tarefas de CRUD de ambos, assim como relacioná-los entre si. Este projeto faz parte do desafio técnico proposto pela FIAP para .NET Developer, descrito na <a href="https://github.com/GabrielBueno200/StudentClassManager/wiki">Wiki</a> deste repositório
 
 <!-- HOW TO RUN -->
 ## 🚀 Como rodar
  
 ### 1 - Criar base de dados 
 <p align="center">
-	<img src="https://github.com/GabrielBueno200/StudentClassManager/assets/56837996/f0a5601f-5c18-440e-904e-4a52cdf1c7f3" height="200" width="550"/>
+	<img src="https://github.com/GabrielBueno200/StudentClassManager/assets/56837996/4f2ae609-d3cf-49c0-914d-cfe466bd790f" width="500"/>
 </p>
 
 O script utilizado para a criação da base de dados SQL Server foi baseado no diagrama proposto acima. Para executar o sistema, primeiro será necessário criá-la.
