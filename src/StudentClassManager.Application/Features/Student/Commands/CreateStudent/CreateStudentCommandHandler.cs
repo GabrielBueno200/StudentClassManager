@@ -27,8 +27,6 @@ public class CreateStudentCommandHandler : IRequestHandler<CreateStudentCommand,
                 .ValidateAsync(request);
         validation.VerifyErrorsAndThrow();
 
-        if (!validation.IsValid) throw new Exception("invalid");
-
         // Mapping
         var studentToCreate = _mapper.Map<Domain.Models.Student>(request);
 
