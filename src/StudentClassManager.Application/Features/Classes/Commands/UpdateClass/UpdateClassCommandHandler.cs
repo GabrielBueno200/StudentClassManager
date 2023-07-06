@@ -23,9 +23,6 @@ public class UpdateClassCommandHandler : IRequestHandler<UpdateClassCommand, Uni
         var validation = await new UpdateClassCommandValidator()
                 .ValidateAsync(request);
         validation.VerifyErrorsAndThrow();
-
-        if (!validation.IsValid) 
-            throw new BadRequestException( "");
         
         var classAlreadyExists = (await _repository.GetClassByNameAsync(request.ClassName!)) != null;
         if (classAlreadyExists) 
